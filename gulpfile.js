@@ -20,7 +20,7 @@ gulp.task('haml', function() {
 });
 
 gulp.task('sass', function() {
-  gulp.src('_assets/sass/**/*.sass')
+  gulp.src('assets/_sass/**/*.sass')
     .pipe(sourcemaps.init())
     .pipe(sass({
       indentedSyntax: true,
@@ -37,21 +37,18 @@ gulp.task('sass', function() {
 });
 
 gulp.task('coffee', function() {
-  gulp.src('_assets/coffee/**/*.coffee')
+  gulp.src([
+    // This is like the Rails asset pipeline JS manifest
+    'assets/_coffee/global.coffee',
+  ])
+    .pipe(sourcemaps.init())
+    .pipe(concat('main.coffee'))
     .pipe(coffee({bare: true}).on('error', function (err) {
       console.log(err);
       this.emit('end');
     }))
-    .pipe(gulp.dest('_assets/js/'))
-});
-
-gulp.task('concat', function() {
-  gulp.src([
-    '_assets/js/global.js',
-  ])
-    .pipe(sourcemaps.init())
-    .pipe(concat('main.js'))
     .pipe(sourcemaps.write())
+    // .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('assets/js/'));
 });
 
@@ -84,9 +81,8 @@ gulp.task('browser-sync', function() {
 
 gulp.task('watch', function() {
   gulp.watch('_haml/**/*.haml', ['haml']);
-  gulp.watch('_assets/sass/**/*.sass', ['sass']);
-  gulp.watch('_assets/coffee/**/*.coffee', ['coffee']);
-  gulp.watch('_assets/js/**/*.js', ['concat']);
+  gulp.watch('assets/_sass/**/*.sass', ['sass']);
+  gulp.watch('assets/_coffee/**/*.coffee', ['coffee']);
   // gulp.watch('assets/js/main.js', ['uglify']);
 });
 
@@ -95,7 +91,6 @@ gulp.task('default', [
   'haml',
   'sass',
   'coffee',
-  'concat',
   'uglify',
   'browser-sync',
   'watch'

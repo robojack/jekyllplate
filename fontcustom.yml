@@ -16,7 +16,7 @@ quiet: false
 # Input Paths
 
 input:
-  vectors: _assets/fontcustom
+  vectors: assets/_fontcustom
 
 
 
@@ -24,7 +24,7 @@ input:
 
 output:
   fonts: assets/fonts
-  css: _assets/sass
+  css: assets/_sass
 
 templates:
   - scss
