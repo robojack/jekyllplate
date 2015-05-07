@@ -1,0 +1,10 @@
+%header.site-header
+  .wrapper
+    %a.site-title{ href: '{{ site.baseurl }}/'} {{ site.title }}
+    %nav.site-nav
+      .trigger
+        {% for page in site.pages %}
+        {% if page.title %}
+        %a.page-link{ href: '{{ page.url | prepend: site.baseurl }}'} {{ page.title }}
+        {% endif %}
+        {% endfor %}

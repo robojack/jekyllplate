@@ -1,0 +1,3 @@
+console.log('Oh, this works?');
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdsb2JhbC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBIiwiZmlsZSI6Im1haW4uanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zb2xlLmxvZygnT2gsIHRoaXMgd29ya3M/Jyk7XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
