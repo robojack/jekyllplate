@@ -12,7 +12,6 @@ github_username:  jekyll
 
 # Build settings
 markdown: redcarpet
-highlighter: pygments
 
 exclude:
   - '*.haml'
