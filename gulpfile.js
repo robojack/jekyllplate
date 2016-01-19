@@ -25,11 +25,10 @@ gulp.task('sass', function() {
     .pipe(sass({
       indentedSyntax: true,
       outputStyle: 'compressed',
-      errLogToConsole: true,
       includePaths: [
         'node_modules/susy/sass/'
       ]
-    }))
+    }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('assets/css/'))
@@ -61,6 +60,7 @@ gulp.task('uglify', function() {
 gulp.task('browser-sync', function() {
   browserSync({
     notify: false,
+    reloadDebounce: 2000,
     files: [
       '_site/assets/css/*.css',
       '_site/assets/media/**',
