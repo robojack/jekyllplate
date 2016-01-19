@@ -3,6 +3,7 @@ tmp
 .sass-cache
 .ruby-version
 .fontcustom-manifest.json
+.jekyll-metadata
 bower_components
 node_modules
 _site
